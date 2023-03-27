@@ -19,7 +19,6 @@
                   </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                 {{-- @if (count($employees) > 0) --}}
                  @foreach ($employees as $key => $employee )
                  <tr>
                    <td>{{ ++$key }}</td>
@@ -27,27 +26,19 @@
                    <td>{{ $employee->email }}</td>
                    <td><img src="{{ asset('/upload/'.$employee->image) }}" alt="" style="height:80px;width:120px;"></td>
                    <td>{{ $employee->gender }}</td>
-                   <td>{{ $employee->skill }}</td>
-                   {{-- <td>
-                       @php
-                           $skill = json_decode($employee->skill)
-                       @endphp
-                       @foreach ($skill as $skil )
-                           {{ $skil }}
-                       @endforeach
-                   </td> --}}
+                   <td>
+                    <ol type=",">
+                      @foreach (explode(",", $employee->skill) as $data )
+                      <li>{{ $data }}</li>
+                      @endforeach
+                    </ol>
+                   </td>
                    <td>
                        <a href="{{ route('employee_edit',$employee->id) }}" class="btn btn-sm btn-primary">Edit</a>
                        <a href="{{ route('employee_delete',$employee->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('are you sure?')">Delete</a>
                    </td>
                  </tr>
                  @endforeach
-
-                 {{-- @else
-                     <tr>
-                        <td colspan="3">Employe not found!</td>
-                     </tr>
-                 @endif --}}
                 </tbody>
               </table>
             </div>

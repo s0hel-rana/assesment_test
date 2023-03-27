@@ -25,18 +25,21 @@ class EmployeeController extends Controller
             'skill' => 'required',
             'gender' => 'required',
         ]);
+        
         $filename = '';
         if ($request->hasfile('image')) {
             $file = $request->file('image');
             $filename = date('Ymdmhs') . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('/upload'), $filename);
         }
-
+        if(is_null($request->skill)){
+            return redirect()->route('employee');
+        }
         Employee::create([
             'name' => $request->name,
             'email' => $request->email,
             'image' => $filename,
-            'skill' => json_encode($request->skill),
+            'skill' => implode(",", $request->skill),
             'gender' => $request->gender
         ]);
 

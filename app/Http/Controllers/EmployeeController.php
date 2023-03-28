@@ -22,7 +22,7 @@ class EmployeeController extends Controller
             'name' => 'required|unique:employees|max:255',
             'email' => 'required',
             'image' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
-            'skill' => 'required',
+            'skills' => 'required',
             'gender' => 'required',
         ]);
 
@@ -32,14 +32,14 @@ class EmployeeController extends Controller
             $filename = date('Ymdmhs') . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('/upload'), $filename);
         }
-        if(is_null($request->skill)){
+        if(is_null($request->skills)){
             return redirect()->route('employee');
         }
         Employee::create([
             'name' => $request->name,
             'email' => $request->email,
             'image' => $filename,
-            'skill' => implode(",", $request->skill),
+            'skills' => implode(",", $request->skills),
             'gender' => $request->gender
         ]);
 
@@ -61,14 +61,14 @@ class EmployeeController extends Controller
             $filename = date('Ymdmhs') . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('/upload'), $filename);
         }
-        if(is_null($request->skill)){
+        if(is_null($request->skills)){
             return redirect()->route('employee');
         }
         $employee->update([
             'name' => $request->name,
             'email' => $request->email,
             'image' => $filename,
-            'skill' => implode(",", $request->skill),
+            'skills' => implode(",", $request->skills),
             'gender' => $request->gender
         ]);
         toastr()->success('Data has been updated  successfully!');

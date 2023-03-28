@@ -127,32 +127,23 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="#" class="menu-link">
+              <a href="{{ url('/') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 
-            <!-- Employee -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Employee</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="{{ route('employee') }}" class="menu-link">
-                    <div data-i18n="Without menu">All Employee</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="{{ route('add_employee') }}" class="menu-link">
-                    <div data-i18n="Without navbar">Add Employee</div>
-                  </a>
-                </li>
-              </ul>
-            </li>     
+            <!-- Employee --> 
+              <li class="menu-item">
+                <a href="{{ route('employee') }}" class="menu-link">
+                  <div data-i18n="Without menu">All Employee</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="{{ route('add_employee') }}" class="menu-link">
+                  <div data-i18n="Without navbar">Add Employee</div>
+                </a>
+              </li>             
           </ul>
         </aside>
         <!-- / Menu -->

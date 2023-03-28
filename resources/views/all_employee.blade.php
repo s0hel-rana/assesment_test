@@ -28,7 +28,7 @@
                    <td>{{ $employee->gender }}</td>
                    <td>
                     <ol type=",">
-                      @foreach (explode(",", $employee->skill) as $data )
+                      @foreach (explode(",", $employee->skills) as $data )
                       <li>{{ $data }}</li>
                       @endforeach
                     </ol>

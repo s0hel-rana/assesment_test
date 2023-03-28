@@ -40,12 +40,12 @@
                 </div>
                 <div class="col-sm-12">
                     <label class="col-sm-2 col-form-label" for="basic-default-name" for="skills">Skills :</label>
-                     <input type="checkbox" name="skill[]" value="Laravel" {{ ($employee->skill == 'Laravel')? 'checked': '' }}> Laravel
-                     <input type="checkbox" name="skill[]" value="Codeigniter" {{ ($employee->skill == 'Codeigniter')? 'checked': '' }}> Codeigniter
-                     <input type="checkbox" name="skill[]" value="Ajax" {{ ($employee->skill == 'Ajax')? 'checked': '' }} > Ajax
-                     <input type="checkbox" name="skill[]" value="VUE JS" {{ ($employee->skill == 'VUE JS')? 'checked': '' }} > VUE JS
-                     <input type="checkbox" name="skill[]" value="MySQL" {{ ($employee->skill == 'MySQL')? 'checked': '' }} > MySQL
-                     <input type="checkbox" name="skill[]" value="API" {{ ($employee->skill == 'API')? 'checked': '' }}  > API
+                     <input type="checkbox" name="skills" id="laravel" value="Laravel" {{ (Str::contains($employee->skills, 'Laravel'))? 'checked':'' }}/> Laravel
+                     <input type="checkbox" name="skills[]" value="Codeigniter" {{ (Str::contains($employee->skills, 'Codeigniter'))? 'checked': '' }}> Codeigniter
+                     <input type="checkbox" name="skills[]" value="Ajax" {{ (Str::contains($employee->skills, 'Ajax'))? 'checked': '' }} > Ajax
+                     <input type="checkbox" name="skills[]" value="VUE JS" {{ (Str::contains($employee->skills, 'VUE JS'))? 'checked': '' }} > VUE JS
+                     <input type="checkbox" name="skills[]" value="MySQL" {{ (Str::contains($employee->skills, 'MySQL'))? 'checked': '' }} > MySQL
+                     <input type="checkbox" name="skills[]" value="API" {{ (Str::contains($employee->skills, 'API'))? 'checked': '' }}  > API
                 </div>
 
                 <div class="row justify-content-end">

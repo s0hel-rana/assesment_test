@@ -47,14 +47,15 @@
                     </div>
                     @error('gender') <span class="text-danger">{{ $message }}</span> @enderror
                   </div>
+
                   <div class="col-sm-12">
                     <label class="col-sm-2 col-form-label" for="basic-default-name" for="skills">Skills :</label>
-                     <input type="checkbox" name="skill[]" value="Laravel" /> Laravel
-                     <input type="checkbox" name="skill[]" value="Codeigniter" /> Codeigniter
-                     <input type="checkbox" name="skill[]" value="Ajax" /> Ajax
-                     <input type="checkbox" name="skill[]" value="VUE JS" /> VUE JS
-                     <input type="checkbox" name="skill[]" value="MySQL" /> MySQL
-                     <input type="checkbox" name="skill[]" value="API" /> API
+                     <input type="checkbox" name="skills[]" value="Laravel" /> Laravel
+                     <input type="checkbox" name="skills[]" value="Codeigniter" /> Codeigniter
+                     <input type="checkbox" name="skills[]" value="Ajax" /> Ajax
+                     <input type="checkbox" name="skills[]" value="VUE JS" /> VUE JS
+                     <input type="checkbox" name="skills[]" value="MySQL" /> MySQL
+                     <input type="checkbox" name="skills[]" value="API" /> API
                   </div>
 
                 <div class="row justify-content-end">

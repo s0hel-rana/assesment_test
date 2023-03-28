@@ -56,7 +56,9 @@
                      <input type="checkbox" name="skills[]" value="VUE JS" /> VUE JS
                      <input type="checkbox" name="skills[]" value="MySQL" /> MySQL
                      <input type="checkbox" name="skills[]" value="API" /> API
+                     @error('skills') <span class="text-danger">{{ $message }}</span> @enderror
                   </div>
+
 
                 <div class="row justify-content-end">
                   <div class="col-sm-10">

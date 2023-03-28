@@ -34,18 +34,18 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Gender</label>
                     <div class="col-sm-10">
-                      <input name="gender" type="radio" value="Male" {{ $employee == 'gender' ?  "checked" : "" }} /> Male
-                      <input name="gender" type="radio" value="Female" {{ $employee == 'gender' ?  "checked" : ""  }}/> Female
+                        <input type="radio" name="gender" value="Male" {{ ($employee->gender == 'Male')? 'checked': '' }} >Male
+                        <input type="radio" name="gender" value="Female" {{ ($employee->gender == 'Female')? 'checked': '' }}>Female
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <label class="col-sm-2 col-form-label" for="basic-default-name" for="skills">Skills :</label>
-                     <input type="checkbox" name="skill[]" value="Laravel" {{ $employee->gender == "Laravel"?'checked':'' }}/> Laravel
-                     <input type="checkbox" name="skill[]" value="Codeigniter" {{ $employee->gender == "Codeigniter"?'checked':'' }}/> Codeigniter
-                     <input type="checkbox" name="skill[]" value="Ajax"  /> Ajax
-                     <input type="checkbox" name="skill[]" value="VUE JS"  /> VUE JS
-                     <input type="checkbox" name="skill[]" value="MySQL"  /> MySQL
-                     <input type="checkbox" name="skill[]" value="API"  /> API
+                     <input type="checkbox" name="skill[]" value="Laravel" {{ ($employee->skill == 'Laravel')? 'checked': '' }}> Laravel
+                     <input type="checkbox" name="skill[]" value="Codeigniter" {{ ($employee->skill == 'Codeigniter')? 'checked': '' }}> Codeigniter
+                     <input type="checkbox" name="skill[]" value="Ajax" {{ ($employee->skill == 'Ajax')? 'checked': '' }} > Ajax
+                     <input type="checkbox" name="skill[]" value="VUE JS" {{ ($employee->skill == 'VUE JS')? 'checked': '' }} > VUE JS
+                     <input type="checkbox" name="skill[]" value="MySQL" {{ ($employee->skill == 'MySQL')? 'checked': '' }} > MySQL
+                     <input type="checkbox" name="skill[]" value="API" {{ ($employee->skill == 'API')? 'checked': '' }}  > API
                 </div>
 
                 <div class="row justify-content-end">

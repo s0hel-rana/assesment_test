@@ -25,7 +25,7 @@ class EmployeeController extends Controller
             'skill' => 'required',
             'gender' => 'required',
         ]);
-        
+
         $filename = '';
         if ($request->hasfile('image')) {
             $file = $request->file('image');
@@ -47,18 +47,28 @@ class EmployeeController extends Controller
         return redirect()->route('employee');
     }
     public function edit($id)
-    { 
+    {
         $employee = Employee::find($id);
         return view('edit_employee',compact('employee'));
     }
     public function update(Request $request, $id)
     {
-        $product = Employee::find($id);
+        $employee = Employee::find($id);
 
-        $product->update([
+        $filename = '';
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $filename = date('Ymdmhs') . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('/upload'), $filename);
+        }
+        if(is_null($request->skill)){
+            return redirect()->route('employee');
+        }
+        $employee->update([
             'name' => $request->name,
             'email' => $request->email,
-            'skill' => $request->skill,
+            'image' => $filename,
+            'skill' => implode(",", $request->skill),
             'gender' => $request->gender
         ]);
         toastr()->success('Data has been updated  successfully!');
@@ -66,15 +76,15 @@ class EmployeeController extends Controller
     }
     public function delete($id)
     {
-        $product = Employee::find($id);
-        $image = str_replace('\\', '/', public_path('/upload/' . $product->image));
+        $employee = Employee::find($id);
+        $image = str_replace('\\', '/', public_path('/upload/' . $employee->image));
         if (is_file($image)){
             unlink($image);
-            $product->delete();
+            $employee->delete();
             toastr()->success('Deleted  successfully!');
             return redirect()->route('employee');
         }else {
-            $product->delete();
+            $employee->delete();
             toastr()->success('Deleted  successfully!');
             return redirect()->back();
         }

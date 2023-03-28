@@ -17,18 +17,23 @@
                   <label class="col-sm-2 col-form-label" for="basic-default-name">Employee :</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="name" name="name" placeholder="name...." />
+                    @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-default-name">Email :</label>
                   <div class="col-sm-10">
                     <input type="email" class="form-control" id="email" name="email" placeholder="email..." />
+                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+
                   </div>
                 </div>
                   <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Image :</label>
                     <div class="col-sm-10">
                       <input type="file" accept="image/*" class="form-control" id="image" name="image" placeholder="image" />
+                      @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                   </div>
 
@@ -40,6 +45,7 @@
                       <input type="radio" class="form-check-input" id="genderF" name="gender" value="Female"/>
                       <label for="genderF" class="form-check-label">Female</label>
                     </div>
+                    @error('gender') <span class="text-danger">{{ $message }}</span> @enderror
                   </div>
                   <div class="col-sm-12">
                     <label class="col-sm-2 col-form-label" for="basic-default-name" for="skills">Skills :</label>

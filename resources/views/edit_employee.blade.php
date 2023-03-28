@@ -11,7 +11,7 @@
               <small class="text-muted float-end">Edit Information</small>
             </div>
             <div class="card-body">
-              <form action="{{ route('employee_update',$employee->id) }}" method="post">
+              <form action="{{ route('employee_update',$employee->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
@@ -26,16 +26,26 @@
                   </div>
                 </div>
                 <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-name">Image :</label>
+                    <div class="col-sm-10">
+                      <input type="file" accept="image/*" class="form-control" name="image" value="{{ $employee->image }}" />
+                    </div>
+                  </div>
+                <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Gender</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="gender" name="gender" value="{{ $employee->gender }}" />
+                      <input name="gender" type="radio" value="Male" {{ $employee == 'gender' ?  "checked" : "" }} /> Male
+                      <input name="gender" type="radio" value="Female" {{ $employee == 'gender' ?  "checked" : ""  }}/> Female
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label" for="basic-default-name">Skills</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="skill" name="skill" value="{{ $employee->skill }}" />
-                    </div>
+                <div class="col-sm-12">
+                    <label class="col-sm-2 col-form-label" for="basic-default-name" for="skills">Skills :</label>
+                     <input type="checkbox" name="skill[]" value="Laravel" {{ $employee->gender == "Laravel"?'checked':'' }}/> Laravel
+                     <input type="checkbox" name="skill[]" value="Codeigniter" {{ $employee->gender == "Codeigniter"?'checked':'' }}/> Codeigniter
+                     <input type="checkbox" name="skill[]" value="Ajax"  /> Ajax
+                     <input type="checkbox" name="skill[]" value="VUE JS"  /> VUE JS
+                     <input type="checkbox" name="skill[]" value="MySQL"  /> MySQL
+                     <input type="checkbox" name="skill[]" value="API"  /> API
                 </div>
 
                 <div class="row justify-content-end">

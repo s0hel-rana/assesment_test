@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-sm-12">
                     <label class="col-sm-2 col-form-label" for="basic-default-name" for="skills">Skills :</label>
-                     <input type="checkbox" name="skills" id="laravel" value="Laravel" {{ (Str::contains($employee->skills, 'Laravel'))? 'checked':'' }}/> Laravel
+                     <input type="checkbox" name="skills[]" value="Laravel" {{ (Str::contains($employee->skills, 'Laravel'))? 'checked':'' }}/> Laravel
                      <input type="checkbox" name="skills[]" value="Codeigniter" {{ (Str::contains($employee->skills, 'Codeigniter'))? 'checked': '' }}> Codeigniter
                      <input type="checkbox" name="skills[]" value="Ajax" {{ (Str::contains($employee->skills, 'Ajax'))? 'checked': '' }} > Ajax
                      <input type="checkbox" name="skills[]" value="VUE JS" {{ (Str::contains($employee->skills, 'VUE JS'))? 'checked': '' }} > VUE JS

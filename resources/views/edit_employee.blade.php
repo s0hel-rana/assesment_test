@@ -25,12 +25,19 @@
                     <input type="email" class="form-control" id="email" name="email" value="{{ $employee->email }}" />
                   </div>
                 </div>
-                <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label" for="basic-default-name">Image :</label>
-                    <div class="col-sm-10">
-                      <input type="file" accept="image/*" class="form-control" name="image" value="{{ $employee->image }}" />
-                    </div>
+
+                <div class="mb-3">
+                  <label for="" class="col-sm-2 col-form-label">Image</label>
+                  <div class="col-sm-10">
+                      <input type="file" id="image" class="form-control" name="image">
                   </div>
+              </div>
+              <div class="mb-3">
+                  <div class="col-sm-10">
+                      <img class="card-img-top img-fluid img-thumbnail rounded" id="showImage" src="{{ asset('upload') }}/{{ $employee->image }}" alt="Card image cap" style="width: 12rem">
+                  </div>
+              </div>
+              
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Gender</label>
                     <div class="col-sm-10">
@@ -48,6 +55,7 @@
                      <input type="checkbox" name="skills[]" value="API" {{ (Str::contains($employee->skills, 'API'))? 'checked': '' }}  > API
                 </div>
 
+
                 <div class="row justify-content-end">
                   <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -58,4 +66,15 @@
           </div>
         </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#image').change(function(e){
+          var reader = new FileReader();
+          reader.onload = function(e){
+              $('#showImage').attr('src',e.target.result);
+          }
+          reader.readAsDataURL(e.target.files['0']);
+      });
+  });
+</script>
 @endsection

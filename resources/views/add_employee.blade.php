@@ -32,7 +32,8 @@
                   <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Image :</label>
                     <div class="col-sm-10">
-                      <input type="file" accept="image/*" class="form-control" id="image" name="image" placeholder="image" />
+                      <img class="rounded-circle mt-5" height="250" width="250" id="showImage" src="{{ asset('upload/20230329030626.png') }}" alt="">
+                      <input type="file" class="form-control" id="image" name="image" />
                       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                   </div>
@@ -69,5 +70,17 @@
             </div>
           </div>
         </div>
-</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('#image').change(function(){
+              let reader = new FileReader();
+              reader.onload = (e) => {
+                  $('#showImage').attr('src', e.target.result);
+              }
+              reader.readAsDataURL(this.files[0]);
+          });
+      });
+    </script>
 @endsection

@@ -34,7 +34,7 @@
               </div>
               <div class="mb-3">
                   <div class="col-sm-10">
-                      <img class="card-img-top img-fluid img-thumbnail rounded" id="showImage" src="{{ asset('upload') }}/{{ $employee->image }}" alt="Card image cap" style="width: 12rem">
+                      <img class="card-img-top img-fluid img-thumbnail rounded" height="250" width="250" id="showImage" src="{{ asset('upload') }}/{{ $employee->image }}" alt="Card image cap" style="width: 12rem">
                   </div>
               </div>
               
@@ -66,14 +66,15 @@
           </div>
         </div>
 </div>
-<script type="text/javascript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
   $(document).ready(function(){
-      $('#image').change(function(e){
-          var reader = new FileReader();
-          reader.onload = function(e){
-              $('#showImage').attr('src',e.target.result);
+      $('#image').change(function(){
+          let reader = new FileReader();
+          reader.onload = (e) => {
+              $('#showImage').attr('src', e.target.result);
           }
-          reader.readAsDataURL(e.target.files['0']);
+          reader.readAsDataURL(this.files[0]);
       });
   });
 </script>
